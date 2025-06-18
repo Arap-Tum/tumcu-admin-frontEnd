@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+
+  <link rel="stylesheet" href="src/styles/styles.css" />
+</head>
+
+<body>
+  <!-- Navigation -->
+  <div class="nav"></div>
+
+
+  <!-- Dashboard Page -->
+  <div id="dashboard" class="page active">
+    <div class="page-header">
+      <h1 class="page-title">Dashboard</h1>
+      <p>Welcome to the CU Admin Panel. Manage your content efficiently.</p>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-number" id="mediaCount">0</span>
+        <div class="stat-label">Media Items</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" id="libraryCount">0</span>
+        <div class="stat-label">Library </div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" id="leadersCount">0</span>
+        <div class="stat-label">Leaders</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" id="leadersCount">0</span>
+        <div class="stat-label">Former Leaders</div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="src/model/dasboard.js"></script>
+</body>
+
+</html>

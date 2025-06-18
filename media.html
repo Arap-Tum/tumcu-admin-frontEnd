@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Media</title>
+
+  <link rel="stylesheet" href="src/styles/media.css" />
+  <link rel="stylesheet" href="src/styles/styles.css" />
+</head>
+
+<body>
+  <div class="nav"></div>
+
+  <!-- Media Page -->
+  <div id="media" class="page">
+    <div class="page-header">
+      <h1 class="page-title">Media Management</h1>
+      <p>Manage videos and photos for your website.</p>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="media-add">Add Media</button>
+      <button class="tab-btn" data-tab="media-manage">Manage Media</button>
+    </div>
+
+    <!-- Add Media Tab -->
+    <div id="media-add" class="tab-content active">
+      <div class="form-container">
+        <form id="media-form">
+          <div class="form-group">
+            <label class="form-label">Title</label>
+            <input type="text" name="title" class="form-input" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Type</label>
+            <select name="type" class="form-select" required>
+              <option value="">Select Type</option>
+              <option value="Video">Video</option>
+              <option value="Photo">Photo</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Link (URL or Video Source)</label>
+            <input type="url" name="link" class="form-input" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Cover Image</label>
+            <div class="file-upload" data-upload="media-cover">
+              <div class="upload-icon">📁</div>
+              <div class="upload-text">
+                <strong>Click to upload</strong> or drag and drop<br />
+                JPG, PNG, WEBP up to 2MB
+              </div>
+              <input type="file" name="image" accept=".jpg,.jpeg,.png,.webp" hidden />
+              <div class="file-preview"></div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Add Media</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Manage Media Tab -->
+    <div id="media-manage" class="tab-content">
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search media..." id="searchInput" />
+      </div>
+
+      <div class="grid" id="galleryGrid">
+        <div class="loading">
+          <div class="spinner"></div>
+          Loading media...
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Edit Product Modal -->
+    <div id="editModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Edit Media</h2>
+          <span class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+          <form id="edit-media-form">
+            <div class="form-group">
+              <label class="form-label">Title</label>
+              <input type="text" name="title" id="edit-title" class="form-input" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Type</label>
+              <select name="type" id="edit-type" class="form-select" required>
+                <option value="">Select Type</option>
+                <option value="Video">Video</option>
+                <option value="Photo">Photo</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Link (URL or Video Source)</label>
+              <input type="url" name="link" id="edit-link" class="form-input" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Cover Image</label>
+              <div class="file-upload" data-upload="edit-media-cover">
+                <div class="upload-icon">📁</div>
+                <div class="upload-text">
+                  <strong>Click to upload</strong> or drag and drop<br />
+                  JPG, PNG, WEBP up to 2MB<br />
+                  <small>Leave empty to keep current image</small>
+                </div>
+                <input type="file" name="image" id="edit-cover" accept=".jpg,.jpeg,.png,.webp" hidden />
+                <div class="file-preview" id="edit-file-preview"></div>
+              </div>
+            </div>
+
+            <button type="submit" id="sendUpdateBtn" class="btn btn-success">Update Media</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="src/model/media.js"></script>
+</body>
+
+</html>

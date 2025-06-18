@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leaders admin</title>
+
+  <link rel="stylesheet" href="src/styles/styles.css" />
+  <link rel="stylesheet" href="src/styles/leaders.css">
+</head>
+
+<body>
+  <div class="nav"></div>
+
+  <!-- Library Page -->
+  <div id="page" class="page">
+    <div class="page-header">
+      <h1 class="page-title">Executive Leaders Management</h1>
+      <p>Manage leaders </p>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="add">Add leaders</button>
+      <button class="tab-btn" data-tab="manage">Manage</button>
+    </div>
+
+    <!-- Add Media Tab -->
+    <div id="add" class="tab-content active">
+      <div class="form-container">
+        <form id="addItemForm">
+
+          <div class="form-group">
+            <label class="form-label">Name</label>
+            <input type="text" name="name" class="form-input" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Position</label>
+            <input type="text" name="position" class="form-input" required />
+          </div>
+
+
+          <div class="form-group">
+            <label class="form-label">Year of service</label>
+            <select name="year" class="form-select" required>
+              <option value="">Select Year</option>
+              <option value="2024-2025">2024-2025</option>
+              <option value="2025-2026r">2025-2026</option>
+              <option value="2027-2028">2027-2028</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Course</label>
+            <input type="text" name="course" class="form-input" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Cover Image</label>
+            <div class="file-upload" data-upload="media-cover">
+              <div class="upload-icon">📁</div>
+              <div class="upload-text">
+                <strong>Click to upload</strong> or drag and drop<br />
+                JPG, PNG, WEBP up to 2MB
+              </div>
+              <input type="file" name="image" accept=".jpg,.jpeg,.png,.webp" hidden />
+              <div class="file-preview"></div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Add Leader</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Manage books  Tab -->
+    <div id="manage" class="tab-content">
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search media..." id="itemSearch" />
+      </div>
+      <div class="cards-grid" id="itemCards">
+        <div class="loading">
+          <div class="spinner"></div>
+          Loading books...
+        </div>
+      </div>
+    </div>
+
+    <!-- edit Modal -->
+    <div id="editModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Edit</h2>
+          <span class="close">&times;</span>
+        </div>
+
+        <div class="modal-body">
+          <form id="editItemForm">
+
+            <div class="form-group">
+              <label class="form-label">Name</label>
+              <input type="text" name="name" class="form-input" id="name" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Position</label>
+              <input type="text" name="position" class="form-input" id="position" required />
+            </div>
+
+
+            <div class="form-group">
+              <label class="form-label">Year of service</label>
+              <select name="year" class="form-select" id="year" required>
+                <option value="">Select Year</option>
+                <option value="2024-2025">2024-2025</option>
+                <option value="2025-2026r">2025-2026</option>
+                <option value="2027-2028">2027-2028</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Course</label>
+              <input type="text" name="course" class="form-input" id="course" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Cover Image</label>
+              <div class="file-upload" data-upload="media-cover">
+                <div class="upload-icon">📁</div>
+                <div class="upload-text">
+                  <strong>Click to upload</strong> or drag and drop<br />
+                  JPG, PNG, WEBP up to 2MB
+                </div>
+                <input type="file" name="image" accept=".jpg,.jpeg,.png,.webp" hidden />
+                <div class="file-preview" id="editFilePreview"></div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Edit leader</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <script type="module" src="src/model/leaders.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Library</title>
+
+  <link rel="stylesheet" href="src/styles/styles.css" />
+  <link rel="stylesheet" href="src/styles/library.css">
+</head>
+
+<body>
+  <div class="nav"></div>
+
+  <!-- Library Page -->
+  <div id="page" class="page">
+    <div class="page-header">
+      <h1 class="page-title">Library Management</h1>
+      <p>Manage books </p>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="add">Add</button>
+      <button class="tab-btn" data-tab="manage">Manage</button>
+    </div>
+
+    <!-- Add Media Tab -->
+    <div id="add" class="tab-content active">
+      <div class="form-container">
+        <form id="addItemForm">
+          <div class="form-group">
+            <label class="form-label">Title</label>
+            <input type="text" name="title" class="form-input" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Author</label>
+            <input type="text" name="author" class="form-input" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Category</label>
+            <select name="category" class="form-select" required>
+              <option value="">Select Type</option>
+              <option value="prayer">Prayer</option>
+              <option value="prayer">Prayer</option>
+              <option value="faith">Faith</option>
+              <option value="spiritual-growth">Spiritual Growth</option>
+              <option value="bible-study">Bible Study</option>
+              <option value="devotionals">Devotionals</option>
+              <option value="leadership">Christian Leadership</option>
+              <option value="discipleship">Discipleship</option>
+              <option value="christian-living">Christian Living</option>
+              <option value="marriage">Marriage & Family</option>
+              <option value="youth">Youth & Teens</option>
+              <option value="children">Children's Ministry</option>
+              <option value="apologetics">Apologetics</option>
+              <option value="worship">Worship</option>
+              <option value="missions">Missions & Evangelism</option>
+              <option value="prophecy">Prophecy & End Times</option>
+              <option value="deliverance">Deliverance & Spiritual Warfare</option>
+              <option value="testimonies">Testimonies & Biographies</option>
+              <option value="theology">Theology</option>
+              <option value="healing">Healing & Miracles</option>
+              <option value="holiness">Holiness</option>
+
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">description</label>
+            <textarea type="text" name="description" class="form-textarea" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Cover Image</label>
+            <div class="file-upload" data-upload="media-cover">
+              <div class="upload-icon">📁</div>
+              <div class="upload-text">
+                <strong>Click to upload</strong> or drag and drop<br />
+                JPG, PNG, WEBP up to 2MB
+              </div>
+              <input type="file" name="image" accept=".jpg,.jpeg,.png,.webp" hidden />
+              <div class="file-preview"></div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Add book</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Manage books  Tab -->
+    <div id="manage" class="tab-content">
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search media..." id="itemSearch" />
+      </div>
+      <div class="cards-grid" id="itemCards">
+        <div class="loading">
+          <div class="spinner"></div>
+          Loading books...
+        </div>
+      </div>
+    </div>
+
+    <!-- edit Modal -->
+    <div id="editModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Edit</h2>
+          <span class="close">&times;</span>
+        </div>
+
+        <div class="modal-body">
+          <form id="editItemForm">
+            <div class="form-group">
+              <label class="form-label">Title</label>
+              <input type="text" name="title" class="form-input" id="editTitle" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Author</label>
+              <input type="text" name="author" class="form-input" id="editAuthor" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Category</label>
+              <select name="category" id="editCategory" class="form-select" required>
+                <option value="">Select Type</option>
+                <option value="prayer">Prayer</option>
+                <option value="prayer">Prayer</option>
+                <option value="faith">Faith</option>
+                <option value="spiritual-growth">Spiritual Growth</option>
+                <option value="bible-study">Bible Study</option>
+                <option value="devotionals">Devotionals</option>
+                <option value="leadership">Christian Leadership</option>
+                <option value="discipleship">Discipleship</option>
+                <option value="christian-living">Christian Living</option>
+                <option value="marriage">Marriage & Family</option>
+                <option value="youth">Youth & Teens</option>
+                <option value="children">Children's Ministry</option>
+                <option value="apologetics">Apologetics</option>
+                <option value="worship">Worship</option>
+                <option value="missions">Missions & Evangelism</option>
+                <option value="prophecy">Prophecy & End Times</option>
+                <option value="deliverance">Deliverance & Spiritual Warfare</option>
+                <option value="testimonies">Testimonies & Biographies</option>
+                <option value="theology">Theology</option>
+                <option value="healing">Healing & Miracles</option>
+                <option value="holiness">Holiness</option>
+
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">description</label>
+              <textarea type="text" name="description" class="form-textarea" id="editDescription" required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Cover Image</label>
+              <div class="file-upload" data-upload="media-cover">
+                <div class="upload-icon">📁</div>
+                <div class="upload-text">
+                  <strong>Click to upload</strong> or drag and drop<br />
+                  JPG, PNG, WEBP up to 2MB
+                </div>
+                <input type="file" name="image" accept=".jpg,.jpeg,.png,.webp" hidden />
+                <div class="file-preview" id="editFilePreview"></div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Edit Library</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <script type="module" src="src/model/library.js"></script>
+</body>
+
+</html>

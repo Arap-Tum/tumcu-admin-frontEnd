@@ -1,0 +1,136 @@
+:root {
+  --primary-color: #006400;
+  --hover-primary-color: #004d00;
+  --accent-color: #ffd700;
+  --accent-light: #ffea70;
+  --text-dark: #333;
+  --text-light: #666;
+  --card-shadow: 0 8px 24px rgba(0, 100, 0, 0.12);
+  --card-hover-shadow: 0 12px 32px rgba(0, 100, 0, 0.18);
+  --border-radius: 16px;
+}
+
+/* .leaders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-xl);
+} */
+
+.leader-card {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 20px;
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.leader-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--card-hover-shadow);
+}
+.leader-photo {
+  width: 120px;
+  height: 180px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin: 0 auto;
+  display: block;
+  border: 3px solid var(--accent-light);
+  transition: transform 0.3s ease;
+}
+
+.leader-card:hover .leader-photo {
+  transform: scale(1.05);
+}
+
+.leader-info {
+  text-align: center;
+}
+
+.leader-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-sm);
+}
+
+.leader-position {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  margin-bottom: var(--spacing-md);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.leader-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-bottom: 20px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.detail-icon {
+  width: 16px;
+  height: 16px;
+  fill: var(--primary-color);
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  font-size: 1.1rem;
+  color: var(--text-light);
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  .page-title h1 {
+    font-size: 2rem;
+  }
+
+  .leaders-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .leader-card {
+    padding: 10px;
+  }
+
+  .leader-photo {
+    width: 100px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title h1 {
+    font-size: 1.8rem;
+  }
+
+  .leader-name {
+    font-size: 1.2rem;
+  }
+
+  .leader-position {
+    font-size: 1rem;
+  }
+}
