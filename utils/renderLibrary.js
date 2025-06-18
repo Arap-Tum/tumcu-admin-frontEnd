@@ -71,10 +71,12 @@ function createCard(book) {
 export async function addNewBook(e) {
   e.preventDefault();
   const formData = new FormData(e.target);
+  document.getElementById("addItem").innerHTML = "Sending ........";
 
   try {
     const result = await createLibraryItem(formData);
     showToast("Books added succesfully", "success");
+    document.getElementById("addItem").innerHTML = "Add";
 
     // -------- console.log("add new book:", result);
     e.target.reset();
