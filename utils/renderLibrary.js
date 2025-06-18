@@ -74,7 +74,7 @@ export async function addNewBook(e) {
 
   try {
     const result = await createLibraryItem(formData);
-    showToast("Books adaded succesfully", "success");
+    showToast("Books added succesfully", "success");
 
     // -------- console.log("add new book:", result);
     e.target.reset();
