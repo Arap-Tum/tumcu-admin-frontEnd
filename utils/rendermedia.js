@@ -6,7 +6,7 @@ import {
   deleteClick,
 } from "../src/script/scripts.js";
 
-import { setupSearch } from "../src/script/search.JS";
+import { setupSearch } from "../src/script/search.js";
 
 import {
   fetchMediaItems,
