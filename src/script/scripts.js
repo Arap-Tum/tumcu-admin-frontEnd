@@ -1,13 +1,16 @@
 // ---------------------------
 //      CONNECT NAVIGATION
 // ------------------------
-
+import { initSidebar } from "./sidebar.js";
+import { activeLink } from "./highlightNav.js";
 export function connectNav() {
   fetch("navigation.html")
     .then((res) => res.text())
     .then((data) => {
       const nav = document.querySelector(".nav");
       nav.innerHTML = data;
+      initSidebar();
+      activeLink();
     });
 }
 

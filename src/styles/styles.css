@@ -568,3 +568,16 @@ body {
 .toast.error {
   background: #e74c3c;
 }
+
+/* curent page  */
+
+.nav-links a.active {
+  color: #007bff; /* Blue color */
+  font-weight: bold;
+  border-bottom: 2px solid #007bff; /* Underline effect */
+  padding-bottom: 4px;
+}
+
+.sidebar-wrapper {
+  display: none;
+}

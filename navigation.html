@@ -1,24 +1,38 @@
 <nav class="navbar">
     <div class="nav-container">
         <a href="#" class="nav-brand">CU Admin Panel</a>
+
         <ul class="nav-links">
-            <li>
-                <p style="color: brown;">incase of an issue call !!!! <strong style="color: green;">076907082</strong>
+            <li class="nav-contact">
+                <p>
+                    In case of an issue call:
+                    <strong style="color: green;">076907082</strong>
                 </p>
             </li>
-            <li>
-                <a href="index.html" data-page="dashboard" class="active">Dashboard</a>
-            </li>
-            <li><a href="media.html" data-page="media">Media</a></li>
-            <li>
-                <a href="library.html" data-page="Library">Library </a>
-            </li>
-            <li>
-                <a href="leaders.html" data-page="leaders"> Executive Leaders</a>
-            </li>
-            <li>
-                <a href="Fleaders.html" data-page="leaders"> Former Leaders</a>
-            </li>
+
+            <li><a href="index.html" class="page" data-page="dashboard">Dashboard</a></li>
+            <li><a href="media.html" class="page" data-page="media">Media</a></li>
+            <li><a href="library.html" class="page" data-page="library">Library</a></li>
+            <li><a href="leaders.html" class="page" data-page="leaders">Executive Leaders</a></li>
+            <li><a href="Fleaders.html" class="page" data-page="formerLeaders">Former Leaders</a></li>
         </ul>
     </div>
 </nav>
+
+<!-- Sidebar Wrapper -->
+<div id="sidebar-wrapper" class="sidebar-wrapper">
+    <div class="sidebar-header">
+        <span class="brand">TUMCU Admin</span>
+        <span id="sidebar-close" class="close-btn">&#10005;</span>
+    </div>
+    <ul class="sidebar-links">
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="library.html">Library</a></li>
+        <li><a href="leaders.html">Executive Leaders</a></li>
+        <li><a href="Fleaders.html">Former Leaders</a></li>
+    </ul>
+</div>
+
+<!-- Hamburger Button -->
+<div id="hamburger" class="hamburger">&#9776;</div>
