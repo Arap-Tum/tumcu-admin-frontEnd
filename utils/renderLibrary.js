@@ -76,7 +76,7 @@ export async function addNewBook(e) {
   try {
     const result = await createLibraryItem(formData);
     showToast("Books added succesfully", "success");
-    document.getElementById("addItem").innerHTML = "Add";
+    document.getElementById("addItem").innerHTML = "Add Book";
 
     // -------- console.log("add new book:", result);
     e.target.reset();
@@ -139,6 +139,8 @@ export async function saveEditChanges(e) {
 
   const formData = new FormData(form);
 
+  document.getElementById("editItem").innerHTML = "Sending....";
+
   if (!itemId) {
     showToast("Invalid item. Cannot update.", "error");
     return;
@@ -148,6 +150,7 @@ export async function saveEditChanges(e) {
     const result = await editLibraryItem(itemId, formData);
     showToast("Media updated succesfully!", "success");
 
+    document.getElementById("editItem").innerHTML = "Edit Leader";
     // console.log("Edit media result:", result);
     document.querySelector(".modal").style.display = "none";
 

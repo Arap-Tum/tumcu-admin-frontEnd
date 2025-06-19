@@ -21,6 +21,7 @@ let mediaItems = []; //global
 export async function addMedia(e) {
   e.preventDefault();
   const formData = new FormData(e.target);
+  document.getElementById("addItem").innerHTML = "Sending .......";
 
   try {
     const result = await createMediaItem(formData);
@@ -29,6 +30,9 @@ export async function addMedia(e) {
     TESTING
     console.log("Created media:", result);
   */
+
+    document.getElementById("addItem").innerHTML = "Add Media";
+
     e.target.reset();
     clearFilePreviews();
     loadMediaItems(); //reffresh the media list
@@ -129,6 +133,7 @@ export async function saveEditChanges(e) {
   const itemId = form.dataset.id;
 
   const formData = new FormData(form);
+  document.getElementById("sendUpdateBtn").innerHTML = "Updating ....";
 
   if (!itemId) {
     showToast("Invalid item. Cannot update.", "error");
@@ -139,7 +144,9 @@ export async function saveEditChanges(e) {
     const result = await editmediaItem(itemId, formData);
     showToast("Media updated succesfully!", "success");
 
-    console.log("Edit media result:", result);
+    document.getElementById("sendUpdateBtn").innerHTML = "Update Media";
+
+    // console.log("Edit media result:", result);
     document.getElementById("sendUpdateBtn").innerText = "Sending....";
     document.querySelector(".modal").style.display = "none";
 

@@ -73,10 +73,14 @@ export async function addLeader(e) {
   e.preventDefault();
   const formData = new FormData(e.target);
 
+  document.getElementById("addItem").innerHTML = "Sending .......";
+
   try {
     const result = await createFormerLeader(formData);
     showToast("leader adaded succesfully", "success");
-    console.log("Leaders data:", result);
+    // console.log("Leaders data:", result);
+
+    document.getElementById("addItem").innerHTML = "Add Leader";
 
     e.target.reset();
     clearFilePreviews();
@@ -131,8 +135,8 @@ export async function saveEditChanges(e) {
   e.preventDefault();
   const form = e.target;
   const itemId = form.dataset.id;
-
   const formData = new FormData(form);
+  document.getElementById("editItem").innerHTML = "Sending .....";
 
   if (!itemId) {
     showToast("Invalid item. Cannot update.", "error");
@@ -141,7 +145,8 @@ export async function saveEditChanges(e) {
 
   try {
     const result = await editFormerLeader(itemId, formData);
-    showToast("Media updated succesfully!", "success");
+    showToast(" updated succesfully!", "success");
+    document.getElementById("editItem").innerHTML = "Edit leader";
 
     // console.log("Edit media result:", result);
     document.querySelector(".modal").style.display = "none";

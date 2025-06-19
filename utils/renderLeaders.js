@@ -72,11 +72,14 @@ function createCard(item) {
 export async function addLeader(e) {
   e.preventDefault();
   const formData = new FormData(e.target);
+  document.getElementById("addItem").innerHTML = "Sending .......";
 
   try {
     const result = await createLeader(formData);
     showToast("leader adaded succesfully", "success");
-    console.log("Leaders data:", result);
+    document.getElementById("addItem").innerHTML = "Add Leader";
+
+    // console.log("Leaders data:", result);
 
     e.target.reset();
     clearFilePreviews();
@@ -133,6 +136,7 @@ export async function saveEditChanges(e) {
   const itemId = form.dataset.id;
 
   const formData = new FormData(form);
+  document.getElementById("editItem").innerHTML = "Sending .....";
 
   if (!itemId) {
     showToast("Invalid item. Cannot update.", "error");
@@ -142,6 +146,8 @@ export async function saveEditChanges(e) {
   try {
     const result = await editLeader(itemId, formData);
     showToast("Media updated succesfully!", "success");
+
+    document.getElementById("editItem").innerHTML = "Edit leader";
 
     // console.log("Edit media result:", result);
     document.querySelector(".modal").style.display = "none";
